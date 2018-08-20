@@ -4,9 +4,9 @@
 	<p><font color="red">This project is not for evaluation. This is to familiarize the tools and commands used in this course.</font></p>
 </center>
 <hr/>
-<h2>Machines to use and code submissions</h2>
+<h2>Machines and tools</h2>
 <p>All the projects in this course are to be run and tested on the linux machines in lab W204.
-	To connect to these machines, <br/>open an ssh terminal (or an equivalent software in your OS (e.g putty in Windows)) and use the following command: <br/>$ ssh username@ cse-p204instxx.cse.psu.edu<br />where <span class="math"><em>u</em><em>s</em><em>e</em><em>r</em><em>n</em><em>a</em><em>m</em><em>e</em></span> is your username and <span class="math"><em>x</em><em>x</em></span> is the machine number (e.g 04).<br />Proceed with the authentication (your password or 2FA) and you will be logged in.</p>
+	To connect to these machines, <br/>open an ssh terminal (or an equivalent software in your OS (e.g putty in Windows)) and use the following command: <br/><code>$ ssh username@cse-p204instxx.cse.psu.edu</code><br />where <span class="math"><em>u</em><em>s</em><em>e</em><em>r</em><em>n</em><em>a</em><em>m</em><em>e</em></span> is your username and <span class="math"><em>x</em><em>x</em></span> is the machine number (e.g 04).<br />Proceed with the authentication (your password or 2FA) and you will be logged in.</p>
 <!--
  if you are inside the department network, first use the Cisco AnyConnect VPN to establish a VPN, otherwise you don&rsquo;t need a VPN.
 -->
@@ -35,14 +35,14 @@ In order to authenticate your Git user while cloning the repository you need to 
   $ ssh-keygen -t rsa -b 4096 -C "your@email.com"
   </code>
   </li>
- <li> ***********It will ask for the file name etc... answer those..**********(Press Enter on any question to select default answer.)
+ <li> It will ask for a path to store the key generated and password protection for the key file. Press Enter on any question to select default answer.
   </li>
-  <li> Your public SSH key will be created in <code>$ &sim;.ssh/id_rsa.pub</code>. Copy it's content.
+  <li> If you selected the default answer, your public SSH key will be created in <code>$ &sim;/.ssh/id_rsa.pub</code>. Else, it will be in the path you chose for the file. Copy it's content.
   </li>
-  <li>Go to your GitHub account, go to settings, in left-side menu select SSH key, and paste your public Key there.
+  <li>Go to your GitHub account, go to settings, in left-side menu select SSH key, and paste your public key there.
 </li>
 </ol>
-
+<hr/>
 <h2>Working on your project</h2>
 Now that, git environment is configured, you can clone the project (in this example, P0) files and start working on it.
 For each project (P1, P2, and P3), we will release an invitation link to join a github classroom as below:
@@ -58,10 +58,10 @@ containing  the  starter  files  which  we  are  providing you (it has some exec
 
 <h3>Adding your teammate</h3>
 <p style="color:red"><strong >Note:</strong> If you're going to do the project in a group, only one of the team members need to
-accept the invitationlink and then add other team members to the repository as below.<br/>
+accept the invitation link and then add other team members to the repository as below.<br/>
 If you accepted the invitation and don't need the repository (in case you joined a team that already has a repository) let us know to remove the repository</p>
-Some of the course projects can be done in groups up to 2 members.
-If you have a teammate, to add him/her to your private repository, go to repository in GitHub and follow the instructions bellow:
+All the course projects can be done in groups up to 2 members.
+If you have a teammate, to add the user to your private repository, go to repository in GitHub and follow the instructions below:
 <ol>
   <li> Click on settings menu (in upper right side) </li>
 
@@ -69,7 +69,7 @@ If you have a teammate, to add him/her to your private repository, go to reposit
 </ol>
 
 
-<h3>Cloning The project</h3>
+<h3>Cloning the project</h3>
 
 To clone the project to the local machine follow these steps:
 
@@ -92,60 +92,60 @@ where x is the project number(starting from 0)
 This command will download the repository to your current working directory.
 
 <h3>Collaborating with your teammate(s)</h3>
-<p>To  be  able  to  simultaneously  work  on  the  same  project,  teammates  need  tocreate a branch from the master branch and do their work at their own branch.
-	<p>Then when you want to merge your works, as described in below sections youwill merge your branchs into master branch.
+<p>To  be  able  to  simultaneously  work  on  the  same  project,  teammates  need  to create a branch from the master branch and do their work at their own branch.
+	<p>Then when you want to merge your works, as described in below sections you will merge your branchs into master branch.
 	</p><p>To create your branch use the following command:</p>
-	<p>$ git branch < your-branch-name ></p>
+	<p><code>$ git branch &lt; your-branch-name &gt; </code></p>
 	<p>To see it, use the following command:</p>
-	<p>$ git branch -a </p>
+	<p><code>$ git branch -a </code></p>
 	<p>Now to switch to your new branch, use the following command:</p>
-	<p>$ git checkout < your-branch-name ></p>
+	<p><code>$ git checkout &lt; your-branch-name &gt; </code></p>
 	<p>Then you should push your new branch using the following command:</p>
-	<p>$ git push origin < your-branch-name ></p>
+	<p><code>$ git push origin &lt; your-branch-name &gt; </code></p>
 
 
 <h3>Working with the repository</h3>
 <p>Before starting making change in the project make sure that you are at the correct branch.</p>
 <p>To see which branch you currently are at use the followig command:</p>
-<p>$ git branch -a</p>
+<p><code>$ git branch -a</code></p>
 
-<p>If a star sign is near your branch name, you are at the correct branch. Otherwise in order to switch the branch use the following command:</p>
+<p>In the output, you will see all the branches of this repo listed. If a star sign is near your branch name, you are at the correct branch. Otherwise in order to switch the branch use the following command:</p>
 
-<p>$ git checkout < your-branch-name ></p>
+<p><code>$ git checkout &lt; your-branch-name &gt; </code></p>
 
 
 <p>Now that your branch is ready, you can start making changes into the project.</p>
 <p>Any change or add to your (local) repository files must be committed to the remote version of repository on GitHub. To see whether your local repository is up to date or not, enter these commands:</p>
 
-<p>$ cd < downloaded repo. ></p>
-<p>$ git status</p>
+<p><code>$ cd &lt; downloaded repo. &gt; </code></p>
+<p><code>$ git status</code></p>
 
 <p>The output of latter command tells you the status of your local repo.</p>
-<h3 id="sec:start">Getting Started</h3>
-<p>The repository for P0 containins all the files needed for completing P0. When you open this repository, you will find 3 folders, named prog1, ..., prog3. These folders contain the files described below.
+
+<hr/>
+<h2 id="sec:start">Getting Started</h2>
+<p>The repository for P0 containins all the files needed for completing P0. When you open this repository, you will find a folder, named prog1. This folder contains the files described below in task 1 description.
 
 </p>
-<h4>Compiling and executing</h4>
-<p>How to compile the project?</p>
+<h3>Compiling the project</h3>
 <ol>
 <li>
 <p>To compile a source code into an executable file we use <span class="math"><em>g</em><em>c</em><em>c</em></span>.</p>
 </li>
 <li>
-<p>The most basic <span class="math"><em>g</em><em>c</em><em>c</em></span> usage is like this:<br />$ gcc program.c -o out<br />Here gcc compiles the source file <span class="math"><em>p</em><em>r</em><em>o</em><em>g</em><em>r</em><em>a</em><em>m</em>.<em>c</em></span> and creates an executable file called <span class="math"><em>o</em><em>u</em><em>t</em></span>.</p>
+<p>To use gcc:<br />$ gcc program.c -o out<br />Here gcc compiles the source file <span class="math"><em>p</em><em>r</em><em>o</em><em>g</em><em>r</em><em>a</em><em>m</em>.<em>c</em></span> and creates an executable file called <span class="math"><em>o</em><em>u</em><em>t</em></span>.</p>
 </li>
 <li>
-<p>To compile the code using 32/64 bit options, we add the -m&lt;architecture&gt; flag E.g., to compile with the 32 bit option:<br />$ gcc -g -m32 program.c -o out</p>
+<p>The gcc command can take multiple command line arguments and typing it every time can become time consuming. For example, to compile the code using 32/64 bit options, we can add the -m&lt;architecture&gt; flag to the command. E.g., to compile with the 32 bit option:<br /><code>$ gcc -g -m32 program.c -o out</code></p>
 </li>
 <li>
-<p>Most of the times we use <span class="math"><em>m</em><em>a</em><em>k</em><em>e</em></span> utility along with a <span class="math"><em>M</em><em>a</em><em>k</em><em>e</em><em>f</em><em>i</em><em>l</em><em>e</em></span> to ease the compile process. If a project comes with a <span class="math"><em>M</em><em>a</em><em>k</em><em>e</em><em>f</em><em>i</em><em>l</em><em>e</em></span>, using the following command we compile it:<br />$ make</p>
+<p>To ease the compilation process and not type a verbose command sequence every time we compile, we use the <span class="math"><em>m</em><em>a</em><em>k</em><em>e</em></span> utility. This uses a 'Makefile' where we can specify a list of commands directed towards a specific label (e.g., default, clean, prog1 labels in p0/prog1). If a project comes with a Makefile, using the following command will execute the default action:<br />$ make</p>
 </li>
 </ol>
-</li>
 
-<h5>How to run the project? </h5>
+<h3>How to run the project? </h3>
 	<p>Once you compiled a project and created an executable file (e.g out in above bullet), to run that file use the following command:<br />
-		$ ./out [aurguments if needed]</p>
+		<code>$ ./out [command line arguments if needed]</code></p>
 
 
 <p>How to debug a program?<br />To debug a program we use <span class="math"><em>g</em><em>d</em><em>b</em></span> utility. Here is what you will need:</p>
@@ -166,73 +166,55 @@ This command will download the repository to your current working directory.
 <p>To inspect the stack using gdb, type<br />$ backtrace or<br />$ backtrace full (to display contents of local variables)</p>
 </li>
 <li>
-<p>To get information about individual frames, type<br />$ info frame <span class="math"> &lt; </span>frame number<span class="math"> &gt; </span><br />E.g., if you want to see information about frame 5 (assuming your program has made 6 recursive function calls, since frame number starts from 0), then the command would look like<br />$ info frame 5</p>
+<p>To get information about individual frames, type<br /><code>$ info frame &lt; frame number &gt; </code><br />E.g., if you want to see information about frame 5 (assuming your program has made 6 recursive function calls, since frame number starts from 0), then the command would look like<br />$ info frame 5</p>
 </li>
 <li>
 <p>To get size of a frame, subtract frame addresses of two consecutive frames.</p>
 </li>
 </ol>
-</li>
 
 <p>To find the size of an executable (including its code vs. data segments), consider using the <i>size</i> command. Look at its man pages.</p>
 <p>To find PID of, say, prog2, type:<br />$ ps -ef | grep prog2 <br/>or<br />$ pgrep prog2</p>
 
 
 <p>To find the size of code during run time, type the following while the code is in execution:<br />$ pmap PID | grep &ldquo;total&rdquo;<br />To see memory allocated to each section of the process, type<br />$ pmap PID</p>
+<hr/>
 
+<h3>Deliverables</h3>
+The repo contains three folders prog1, prog2 and prog3 that helps familiarize with code debugging in three aspects:
 
-
-<p><strong>Task one:</strong> In <strong>prog1</strong> forlder, the program prog1.c calls a recursive function which has a local and a dynamically allocated variable. this program will crash due a bug we have introduced into it. Use the Makefile that we have provided to compile the program. Execute it. The program will exit with an error printed on the console. You are to compile the program with 32 bit and 64 bit options and carry out the following tasks separately for each:</p>
+<p><strong>Task one:</strong> In <strong>prog1</strong> folder, the program prog1.c calls a recursive function which has a local and a dynamically allocated variable. This program will crash due a bug we have introduced into it. Use the Makefile that we have provided to compile the program and subsequently execute it.
+The program will exit with an error printed on the console.
+You are to compile the program with 32 bit and 64 bit options and carry out the following tasks separately for each:</p>
 <ol>
 <li>
 <p>Observe and report the differences in the following for the 32 bit and 64 bit executables: (i) size of compiled code, (ii) size of code during run time, (iii) size of linked libraries.</p>
 </li>
 <li>
-<p>Use gdb to find the program statement that caused the error. See some tips on gdb in the Appendix if needed.</p>
+<p>Use gdb to find the program statement that caused the error.</p>
 </li>
 <li>
 <p>Explain the cause of this error.</p>
 </li>
 </ol>
 </li>
-
-<p><strong>Task two:</strong> Consider the program prog2.c In <strong>prog2</strong> forlder. It calls a recursive function which has a local and a dynamically allocated variable. Like the last time, this program will crash due to a bug that we have introduced in it. Use the provided Makefile to compile the program. Again, create both a 32 bit and a 64 bit executable. For each of these, execute it. Upon executing, you will see an error on the console before the program terminates. You are to carry out the following tasks:</p>
-<ol>
-<li>
-<p>Observe and report the differences in the following for the 32 bit and 64 bit executables: (i) size of compiled code, (ii) size of code during run time, (iii) size of linked libraries.</p>
-</li>
-<li>
-<p>Use valgrind to find the cause of the error including the program statement causing it. For this, simply run valgrind prog2 on the command line.</p>
-</li>
-<li>
-<p>How is this error different than the one for prog1?</p>
-</li>
-</ol>
-</li>
-
-<p><strong>Task three:</strong> In <strong>prog3</strong> forlder, the program prog3.c may seem to be error-free. But when executing under valgrind, you will see many errors. You are to perform the following tasks:</p>
-<ol>
-<li>
-<p>Describe the cause and nature of these errors. How would you fix them?</p>
-</li>
-</ol>
-</li>
-</ol>
-<h3>Pushing Changes</h3>
+Answer the above questions clearly and make .txt report file containing those answers and add this file to your project. 
+<hr/>
+<h3>Pushing and Submitting Your Changes and Reports</h3>
 
 <p>If you change an existing file or add a new file to your local repo, you must commit the changes and then push them to the remote repo. </p>
 <p>First make sure you are at the correct branch as explained above and then follow the steps below:</p>
 <p>Add files that have been created or have been changed:</p>
 
-<p>$ git add < list of file names separated by space ></p>
+<p><code>$ git add &lt; list of file names separated by space &gt;</code></p>
 
 
 <p>Commit the changes with a message about that change:</p>
 
-<p>$ git commit -m "your proper commit message"</p>
+<p><code>$ git commit -m "your proper commit message"</code></p>
 
 <p>Finally push the changes to remote repo:</p>
-<p>$ git push origin < your-branch-name ></p>
+<p><code>$ git push origin &lt; your-branch-name &gt;</code></p>
 
 <h3> Merging your branches</h3>
  <p>After teammates are done with their work you need to merge your commits to the master branch. In order to merge a branch to the master branch, follow these steps:
@@ -240,7 +222,7 @@ This command will download the repository to your current working directory.
  <ol>
      <li> Go to the web page of your repository at https://github.com/psu473/px-< your-github-username > where $x$ is the project number (starting from 0).
 
-     <li>item Click on <i> Pull requests</i> tab and and then click on <i> New pull request</i> button.
+     <li> Click on <i> Pull requests</i> tab and and then click on <i> New pull request</i> button.
 
      <li> In <i> compare</i> drop-down choose your branch
 
@@ -249,7 +231,7 @@ This command will download the repository to your current working directory.
      <li> Click on <i> Merge pull request</i> button and then click on <i> Confirm merge</i>
  </ol>
 
- <i>*If you are in a group, as a good practice we recommend that members create their own branches and one of the members does Task 1 and the other does Task 2 and then commit
+ <i>*If you are in a group, as a good practice we recommend that members create their own branches and one of the members does Task 1 for -m64 and and the other does -m32 and then commit
  and push their changes and then finally merge your branches into the master branch.*</i>
 
 <h3>Merge Conflicts</h3>
