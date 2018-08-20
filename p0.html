@@ -1,26 +1,41 @@
 <center>
 	<h1>P0: Refreshing Your Background</h1>
 	<h3>CMPSC 473, FALL 2018</h3>
-	<p><font color="red">This project is not for evaluation. This is to familiarize the tools and commands used in this course.</font></p>
+	<p><font color="red">This project is not for evaluation. This is to familiarize
+	yourself with the tools and commands used in this course.</font></p>
 </center>
 <hr/>
 <h2>Machines and tools</h2>
 <p>All the projects in this course are to be run and tested on the linux machines in lab W204.
-	To connect to these machines, <br/>open an ssh terminal (or an equivalent software in your OS (e.g putty in Windows)) and use the following command: <br/><code>$ ssh username@cse-p204instxx.cse.psu.edu</code><br />where <span class="math"><em>u</em><em>s</em><em>e</em><em>r</em><em>n</em><em>a</em><em>m</em><em>e</em></span> is your username and <span class="math"><em>x</em><em>x</em></span> is the machine number (e.g 04).<br />Proceed with the authentication (your password or 2FA) and you will be logged in.</p>
+	To connect to these machines, <br/>
+	open an ssh terminal (or an equivalent software in your OS (e.g putty in Windows))
+	and use the following command: <br/>
+	<code>$ ssh username@ cse-p204instxx.cse.psu.edu</code><br />
+	where <span class="math"><em>u</em><em>s</em><em>e</em><em>r</em><em>n</em><em>a</em><em>m</em><em>e</em></span>
+	is your PSU username and <span class="math"><em>x</em><em>x</em></span>
+	is the machine number (e.g 04).<br />
+	Proceed with the authentication (your password or 2FA) and you will be logged in.</p>
 <!--
  if you are inside the department network, first use the Cisco AnyConnect VPN to establish a VPN, otherwise you don&rsquo;t need a VPN.
 -->
 <p>
-All the projects in this course will allow up to 2 students per team and to ease collaboration, we are planning to use <a href="https://classroom.github.com/">github classroom</a> as the platform for disemminating code stubs and files related to the project, as well as allowing collaborations (within teams).
+All the projects in this course will allow up to 2 students per team and to ease
+collaboration within the team, we are planning to use
+<a href="https://classroom.github.com/">github classroom</a>
+as the platform for disemminating code stubs and files related to the project,
+as well as allowing collaborations (within teams).
 So, we first go through some important and useful commands to configure your respective git environment.
 </p>
 <h3>What is git?</h3>
-<a href="https://en.wikipedia.org/wiki/Git">Git</a> is a version control system (typically done using the main site, <a href="github.com">Github.com</a>) for (i) tracking changes (and reverting to previous versions) in multiple files and (ii) collaborating with multiple users.
+<a href="https://en.wikipedia.org/wiki/Git">Git</a> is a version control system
+(typically hosted on, <a href="github.com">Github.com</a>)
+for (i) tracking changes (and reverting to previous versions) in multiple files and
+(ii) collaborating with multiple users.
 
 <h3>Signing Up</h3>
 If not done already, each student should sign up on <a href="github.com">GitHub.com</a> to register and get their individual usernames.
 
-<h3>Configuring git environment</h3>
+<h3>Configuring your local git environment</h3>
 To configure a git enviroment (in any of the lab W204 machines), set the username and email using following commands:<br/>
  <code>
   $ git config --global user.name "Your Username"<br/>
@@ -37,35 +52,42 @@ In order to authenticate your Git user while cloning the repository you need to 
   </li>
  <li> It will ask for a path to store the key generated and password protection for the key file. Press Enter on any question to select default answer.
   </li>
-  <li> If you selected the default answer, your public SSH key will be created in <code>$ &sim;/.ssh/id_rsa.pub</code>. Else, it will be in the path you chose for the file. Copy it's content.
+  <li> If you selected the default answer, your public SSH key will be created in <code>$ &sim;.ssh/id_rsa.pub</code>. Else, it will be in the path you chose for the file. Copy it's content.
   </li>
   <li>Go to your GitHub account, go to settings, in left-side menu select SSH key, and paste your public key there.
 </li>
 </ol>
 <hr/>
 <h2>Working on your project</h2>
-Now that, git environment is configured, you can clone the project (in this example, P0) files and start working on it.
+After configuring the Git environment, you can clone the project (in this example, P0) files and start working on it.
 For each project (P1, P2, and P3), we will release an invitation link to join a github classroom as below:
 <h3>Invitation link for P0:</h3>
 <p><a href="https://classroom.github.com/a/VtsWevms">https://classroom.github.com/a/VtsWevms</a></p>
 
 <h3>Accepting the project</h3>
 <p>Click on the invitation link above and then accept the project. By accepting the invitation, you will have access to  your  private  repository
-containing  the  starter  files  which  we  are  providing you (it has some executables, some source codes, manuals, scripts, etc., for the project).
+containing  the  starter  files provided as part of the project(it has some executables, some source codes, manuals, scripts, etc., for the project).
 </p><p>The link for your repository is: "https://github.com/psu473/px-< your-github-username >"</p>
 <p>where x is the project number (here 0) </p>
 
 
 <h3>Adding your teammate</h3>
-<p style="color:red"><strong >Note:</strong> If you're going to do the project in a group, only one of the team members need to
-accept the invitation link and then add other team members to the repository as below.<br/>
-If you accepted the invitation and don't need the repository (in case you joined a team that already has a repository) let us know to remove the repository</p>
-All the course projects can be done in groups up to 2 members.
-If you have a teammate, to add the user to your private repository, go to repository in GitHub and follow the instructions below:
-<ol>
-  <li> Click on settings menu (in upper right side) </li>
+<p style="color:red">
+All the course projects can be done in groups of up to 2 members.<br/>
+<strong >Note:</strong> One person per team is required to
+accept the invitation link and then add the other team member to the repository as
+described below.<br/>
+If you accept the invitation and do not need the repository (in case you
+joined a team that already has a repository) let us know, so as to remove the
+repository.</p>
 
-  <li> In left side panel, click on "Collaborators &amp; teams". In collaborator section, add your teammates GitHub username OR his/her email.</li>
+To add your team-member to your private repository, go to your
+repository in GitHub and follow the instructions below:
+<ol>
+  <li> Click on settings menu (on the upper right side) </li>
+
+  <li> In the left side panel, click on "Collaborators &amp; teams". In the collaborator
+  section, add your teammate's GitHub username OR his/her email.</li>
 </ol>
 
 
@@ -74,7 +96,8 @@ If you have a teammate, to add the user to your private repository, go to reposi
 To clone the project to the local machine follow these steps:
 
 <ol>
-  <li> If you want to clone the repository on a department machine, connect to a machine with SSH and enter this command: <br/>
+  <li> If you want to clone the repository on a department machine, SSH into it
+  and enter this command: <br/>
   <code>
   $ git clone git@github.com:PSU473/px-&lt;yourGitHubUsername&gt;.git
   </code>
@@ -92,30 +115,35 @@ where x is the project number(starting from 0)
 This command will download the repository to your current working directory.
 
 <h3>Collaborating with your teammate(s)</h3>
-<p>To  be  able  to  simultaneously  work  on  the  same  project,  teammates  need  to create a branch from the master branch and do their work at their own branch.
-	<p>Then when you want to merge your works, as described in below sections you will merge your branchs into master branch.
+<p>To simultaneously work on the  same  project, team members
+need  to create a branch from the master branch and do their work at their own branch.
+  <p> On completion, merge in the individual branches into the master branch (described below).
 	</p><p>To create your branch use the following command:</p>
 	<p><code>$ git branch &lt; your-branch-name &gt; </code></p>
-	<p>To see it, use the following command:</p>
+	<p>To list all branches, use the following command:</p>
 	<p><code>$ git branch -a </code></p>
-	<p>Now to switch to your new branch, use the following command:</p>
+	<p>Now, to switch to your new branch, use the following command:</p>
 	<p><code>$ git checkout &lt; your-branch-name &gt; </code></p>
-	<p>Then you should push your new branch using the following command:</p>
+	<p>To push your new branch using the following command:</p>
 	<p><code>$ git push origin &lt; your-branch-name &gt; </code></p>
 
 
 <h3>Working with the repository</h3>
-<p>Before starting making change in the project make sure that you are at the correct branch.</p>
+<p>Prior to making changes in the project, make sure that you are in the correct branch.</p>
 <p>To see which branch you currently are at use the followig command:</p>
 <p><code>$ git branch -a</code></p>
 
-<p>In the output, you will see all the branches of this repo listed. If a star sign is near your branch name, you are at the correct branch. Otherwise in order to switch the branch use the following command:</p>
+<p>As mentioned before, you will see all the branches of this repo listed.
+The current branch is marked by an asterisk sign next to the branch name.
+If the current branch is not your branch name, switch to the correct
+branch using the following command:</p>
 
 <p><code>$ git checkout &lt; your-branch-name &gt; </code></p>
 
-
 <p>Now that your branch is ready, you can start making changes into the project.</p>
-<p>Any change or add to your (local) repository files must be committed to the remote version of repository on GitHub. To see whether your local repository is up to date or not, enter these commands:</p>
+<p>Any changes or additions to your local repository must be pushed
+to the remote version of repository on GitHub. To see whether your local
+repository is up to date or not, enter these commands:</p>
 
 <p><code>$ cd &lt; downloaded repo. &gt; </code></p>
 <p><code>$ git status</code></p>
@@ -124,18 +152,21 @@ This command will download the repository to your current working directory.
 
 <hr/>
 <h2 id="sec:start">Getting Started</h2>
-<p>The repository for P0 containins all the files needed for completing P0. When you open this repository, you will find a folder, named prog1. This folder contains the files described below in task 1 description.
-
-</p>
+<p>The repository for P0 containins all the files needed for completing P0. When you open this repository, you will find a folder, named prog1. This folder contains the files described below in task 1 description.</p>
 <h3>Compiling the project</h3>
 <ol>
 <li>
-<p>To compile a source code into an executable file we use <span class="math"><em>g</em><em>c</em><em>c</em></span>.</p>
+<p>To compile a source code into an executable file we use the <span class="math"><em>g</em><em>c</em><em>c</em></span> compiler.</p>
 </li>
 <li>
-<p>To use gcc:<br />$ gcc program.c -o out<br />Here gcc compiles the source file <span class="math"><em>p</em><em>r</em><em>o</em><em>g</em><em>r</em><em>a</em><em>m</em>.<em>c</em></span> and creates an executable file called <span class="math"><em>o</em><em>u</em><em>t</em></span>.</p>
+<p>To use gcc, type the following:<br />$ gcc program.c -o out<br />
+Here, gcc compiles the source file <span class="math"><em>p</em><em>r</em><em>o</em><em>g</em><em>r</em><em>a</em><em>m</em>.<em>c</em></span> and creates an executable file called <span class="math"><em>o</em><em>u</em><em>t</em></span>.</p>
 </li>
 <li>
+<!-- Adithya: I am not sure this is an accurate reason for using makefile. We use a Makefile to hide the details of the compilation process,
+not reduce the time to type the command sequence. Bash history is a good substitute for that. -->
+
+
 <p>The gcc command can take multiple command line arguments and typing it every time can become time consuming. For example, to compile the code using 32/64 bit options, we can add the -m&lt;architecture&gt; flag to the command. E.g., to compile with the 32 bit option:<br /><code>$ gcc -g -m32 program.c -o out</code></p>
 </li>
 <li>
@@ -144,7 +175,8 @@ This command will download the repository to your current working directory.
 </ol>
 
 <h3>How to run the project? </h3>
-	<p>Once you compiled a project and created an executable file (e.g out in above bullet), to run that file use the following command:<br />
+	<p>Once you compile the project and create an executable file (eg. <i>out</i> in above example),
+	to execute that file use the following command:<br />
 		<code>$ ./out [command line arguments if needed]</code></p>
 
 
@@ -154,7 +186,8 @@ This command will download the repository to your current working directory.
 <p>To run a program prog1 under gdb, simply execute<br />$ gdb prog1</p>
 </li>
 <li>
-<p>While running under gdb&rsquo;s control, you can add breakpoints in the program to ease the debugging process. To add a breakpoint, type<br />$ break <span class="math"> &lt; </span>linenumber<span class="math"> &gt; </span></p>
+<p>While running an executable under gdb&rsquo;s control, you can add breakpoints in the program to ease the debugging process.
+To add a breakpoint, type<br />$ break <span class="math"> &lt; </span>linenumber<span class="math"> &gt; </span></p>
 </li>
 <li>
 <p>To run the code type<br />$ r</p>
@@ -181,8 +214,7 @@ This command will download the repository to your current working directory.
 <hr/>
 
 <h3>Deliverables</h3>
-The repo contains three folders prog1, prog2 and prog3 that helps familiarize with code debugging in three aspects:
-
+You should do the task 1 below and answer three questions clearly and make .txt report file containing those answers and add this file to your project.
 <p><strong>Task one:</strong> In <strong>prog1</strong> folder, the program prog1.c calls a recursive function which has a local and a dynamically allocated variable. This program will crash due a bug we have introduced into it. Use the Makefile that we have provided to compile the program and subsequently execute it.
 The program will exit with an error printed on the console.
 You are to compile the program with 32 bit and 64 bit options and carry out the following tasks separately for each:</p>
@@ -198,12 +230,12 @@ You are to compile the program with 32 bit and 64 bit options and carry out the 
 </li>
 </ol>
 </li>
-Answer the above questions clearly and make .txt report file containing those answers and add this file to your project. 
+
 <hr/>
 <h3>Pushing and Submitting Your Changes and Reports</h3>
 
 <p>If you change an existing file or add a new file to your local repo, you must commit the changes and then push them to the remote repo. </p>
-<p>First make sure you are at the correct branch as explained above and then follow the steps below:</p>
+<p>First make sure you are at the correct branch as explained before and then follow the steps below:</p>
 <p>Add files that have been created or have been changed:</p>
 
 <p><code>$ git add &lt; list of file names separated by space &gt;</code></p>
@@ -217,7 +249,8 @@ Answer the above questions clearly and make .txt report file containing those an
 <p><code>$ git push origin &lt; your-branch-name &gt;</code></p>
 
 <h3> Merging your branches</h3>
- <p>After teammates are done with their work you need to merge your commits to the master branch. In order to merge a branch to the master branch, follow these steps:
+ <p>After all team members are done with their work you need to merge your commits
+ to the master branch. In order to merge a branch to the master branch, follow these steps:
  </p>
  <ol>
      <li> Go to the web page of your repository at https://github.com/psu473/px-< your-github-username > where $x$ is the project number (starting from 0).
@@ -235,8 +268,11 @@ Answer the above questions clearly and make .txt report file containing those an
  and push their changes and then finally merge your branches into the master branch.*</i>
 
 <h3>Merge Conflicts</h3>
- <p>While mergeing two branches, there might be some conflicts between them. Git does his best to handle these conflicts as much as possible. However, sometimes you need to resolve the conflicts manually.</p>
- <p>In the step 4 in above section if Git cannot resolve the conflict, asks you to resolve it. Here is how you should do that:</p>
+ <p> Merging two branches can raise conflicts. Git attempts to resolve them as much as possible. Sometimes you need to resolve the conflicts manually.</p>
+
+<!-- <p>While merging two branches, there might be some conflicts between them. Git does its best to handle these conflicts as much as possible. However, sometimes you need to resolve the conflicts manually.</p> -->
+
+ <p>In the step 4 (above) if Git cannot resolve the conflict, it asks you to resolve. Steps to resolve are as below:</p>
  <ol>
      <li> Click on <i> Resolve conflicts</i> button</li>
      <li> Resolve the conflicts as below:<br/>
