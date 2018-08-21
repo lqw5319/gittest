@@ -7,12 +7,12 @@
 <hr/>
 <h2>Machines and tools</h2>
 <p>All the projects in this course are to be run and tested on the linux machines in lab W204.
-	To connect to these machines, <br/>
+	To connect to these machines,
 	open an ssh terminal (or an equivalent software in your OS (e.g putty in Windows))
 	and use the following command: <br/>
-	<code>$ ssh username@ cse-p204instxx.cse.psu.edu</code><br />
+	<code>$ ssh username@cse-p204instxx.cse.psu.edu</code><br />
 	where <span class="math"><em>u</em><em>s</em><em>e</em><em>r</em><em>n</em><em>a</em><em>m</em><em>e</em></span>
-	is your PSU username and <span class="math"><em>x</em><em>x</em></span>
+	is your CSE username and <span class="math"><em>x</em><em>x</em></span>
 	is the machine number (e.g 04).<br />
 	Proceed with the authentication (your password or 2FA) and you will be logged in.</p>
 <!--
@@ -43,7 +43,7 @@ To configure a git enviroment (in any of the lab W204 machines), set the usernam
 </code>
 
 <h3>Adding SSH key</h3>
-In order to authenticate your Git user while cloning the repository you need to add your public SSH key to your git account. To do so, follow below steps:
+In order to authenticate your Git user while cloning the repository you need to add your public SSH key to your git account. To do so, follow the steps below:
 <ol>
   <li>Create a SSH key by running this command:<br/>
   <code>
@@ -52,7 +52,7 @@ In order to authenticate your Git user while cloning the repository you need to 
   </li>
  <li> It will ask for a path to store the key generated and password protection for the key file. Press Enter on any question to select default answer.
   </li>
-  <li> If you selected the default answer, your public SSH key will be created in <code>$ &sim;.ssh/id_rsa.pub</code>. Else, it will be in the path you chose for the file. Copy it's content.
+  <li> If you selected the default answer, your public SSH key will be created in <code>$ &sim;/.ssh/id_rsa.pub</code>. Else, it will be in the path you chose for the file. Copy it's content.
   </li>
   <li>Go to your GitHub account, go to settings, in left-side menu select SSH key, and paste your public key there.
 </li>
@@ -66,14 +66,23 @@ For each project (P1, P2, and P3), we will release an invitation link to join a 
 
 <h3>Accepting the project</h3>
 <p>Click on the invitation link above and then accept the project. By accepting the invitation, you will have access to  your  private  repository
-containing  the  starter  files provided as part of the project(it has some executables, some source codes, manuals, scripts, etc., for the project).
+containing  the  starter  files provided as a part of the project (it has the source codes, manuals and scripts for the project).
 </p><p>The link for your repository is: "https://github.com/psu473/px-< your-github-username >"</p>
 <p>where x is the project number (here 0) </p>
+<strong>Note:</strong> This private repository is a copy of a public starter repository at https://github.com/psu473/p<i>x</i> where x is project number.
+Please stay tuned constantly to the canvas page for the exact and latest interface
+functions you need to implement, their arguments, test programs, examples, documentation/manuals and announcements.<br/>
+
+<p> To get the latest update, follow the steps below:</p>
+<ol>
+	<li>Put here the commands</li>
+</ol>
+These commands enbale you to merge the changes and updates we pushed into the public repository with your current working private repository (e.g p0-< your-github-username >).
 
 
 <h3>Adding your teammate</h3>
 <p style="color:red">
-All the course projects can be done in groups of up to 2 members.<br/>
+Since all the course projects can be done in groups of up to 2 members, we next list the steps to follow to add your team member.<br/>
 <strong >Note:</strong> One person per team is required to
 accept the invitation link and then add the other team member to the repository as
 described below.<br/>
@@ -93,30 +102,19 @@ repository in GitHub and follow the instructions below:
 
 <h3>Cloning the project</h3>
 
-To clone the project to the local machine follow these steps:
-
-<ol>
-  <li> If you want to clone the repository on a department machine, SSH into it
-  and enter this command: <br/>
+Now that a private (remote) repository is created for your team on GitHub.com to start working on the project both team members need to clone the project to their respective local machines. To do so, use the following command:
+<br/><br/>
   <code>
   $ git clone git@github.com:PSU473/px-&lt;yourGitHubUsername&gt;.git
   </code>
 <br/>
-where x is the project number(starting from 0)
-</li>
-<li> If you want to clone the repository on your own machine, open a terminal and enter this command:
-<code>
-  $ git clone https://github.com/PSUC473/px-&lt;yourGitHubUsername&gt;.git
-</code>
+<p>where x is the project number (starting from 0).</p>
 
-where x is the project number(starting from 0)
-</li>
-</ol>
-This command will download the repository to your current working directory.
+<p>This command will download the repository to your current working directory.</p>
 
 <h3>Collaborating with your teammate(s)</h3>
 <p>To simultaneously work on the  same  project, team members
-need  to create a branch from the master branch and do their work at their own branch.
+need  to create a branch from the master branch and do their work at their own branch.</p>
   <p> On completion, merge in the individual branches into the master branch (described below).
 	</p><p>To create your branch use the following command:</p>
 	<p><code>$ git branch &lt; your-branch-name &gt; </code></p>
@@ -130,11 +128,11 @@ need  to create a branch from the master branch and do their work at their own b
 
 <h3>Working with the repository</h3>
 <p>Prior to making changes in the project, make sure that you are in the correct branch.</p>
-<p>To see which branch you currently are at use the followig command:</p>
+<p>To see which branch you currently are at use the following command:</p>
 <p><code>$ git branch -a</code></p>
 
 <p>As mentioned before, you will see all the branches of this repo listed.
-The current branch is marked by an asterisk sign next to the branch name.
+The current branch is marked by an * sign next to the branch name.
 If the current branch is not your branch name, switch to the correct
 branch using the following command:</p>
 
@@ -151,7 +149,7 @@ repository is up to date or not, enter these commands:</p>
 <p>The output of latter command tells you the status of your local repo.</p>
 
 <hr/>
-<h2 id="sec:start">Getting Started</h2>
+<h2 id="sec:start">Getting Started With P0</h2>
 <p>The repository for P0 containins all the files needed for completing P0. When you open this repository, you will find a folder, named prog1. This folder contains the files described below in task 1 description.</p>
 <h3>Compiling the project</h3>
 <ol>
