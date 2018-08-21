@@ -3,7 +3,7 @@
 default: segfault
 
 
-segfault: segfault
+segfault:
 	gcc -g segfault.c -o segfault
 
 clean:
