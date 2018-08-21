@@ -1,18 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <stdint.h>
 
 
 int main(int argc, char const *argv[]) {
-  int *p;
-   p = malloc(sizeof(int));
-   int i=0;
-     
-while(1){
-       printf("Value at address %p is %d\n",p, p[i]);
-      p[i] = i*i;
-i++;
-     }
-
-  return 0;
+	int *p;
+	//FIX:
+	//p = malloc(sizeof(int));
+	printf("Value at address %p is %d\n", p, *p);
+	//FIX:
+	//free(p);
+	return 0;
 }
