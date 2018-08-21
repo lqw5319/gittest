@@ -1,12 +1,10 @@
-HEADERS = program.h headers.h
 
-default: prog1
 
-# program.o: program.c $(HEADERS)
-#     gcc -c program.c -o program.o
+default: segfault
 
-prog1: prog1.c
-	gcc -g prog1.c -o prog1
+
+segfault: segfault
+	gcc -g segfault.c -o segfault
 
 clean:
-	-rm -f prog1
+	-rm -f segfault
