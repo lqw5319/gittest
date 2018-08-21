@@ -10,5 +10,6 @@ int main(int argc, char const *argv[]) {
 	printf("Value at address %p is %d\n", p, *p);
 	//FIX:
 	//free(p);
+	printf("Program executed successfully\n");
 	return 0;
 }
