@@ -150,89 +150,71 @@ repository is up to date or not, enter these commands:</p>
 
 <hr/>
 <h2 id="sec:start">Getting Started With P0</h2>
-<p>The repository for P0 containins all the files needed for completing P0. When you open this repository, you will find a folder, named prog1. This folder contains the files described below in task 1 description.</p>
+<p> This project helps you familiarize with debugging a program that has a segmentation fault error.</p>
+<p>The repository for P0 contains a <i>src</i> folder that contains a <i>segfault.c</i> and a <i>Makefile</i>. We next describe the steps to compile, run and debug the program.</p>
+
 <h3>Compiling the project</h3>
-<ol>
-<li>
-<p>To compile a source code into an executable file we use the <span class="math"><em>g</em><em>c</em><em>c</em></span> compiler.</p>
-</li>
-<li>
-<p>To use gcc, type the following:<br />$ gcc program.c -o out<br />
-Here, gcc compiles the source file <span class="math"><em>p</em><em>r</em><em>o</em><em>g</em><em>r</em><em>a</em><em>m</em>.<em>c</em></span> and creates an executable file called <span class="math"><em>o</em><em>u</em><em>t</em></span>.</p>
-</li>
-<li>
-<!-- Adithya: I am not sure this is an accurate reason for using makefile. We use a Makefile to hide the details of the compilation process,
-not reduce the time to type the command sequence. Bash history is a good substitute for that. -->
-
-
-<p>The gcc command can take multiple command line arguments and typing it every time can become time consuming. For example, to compile the code using 32/64 bit options, we can add the -m&lt;architecture&gt; flag to the command. E.g., to compile with the 32 bit option:<br /><code>$ gcc -g -m32 program.c -o out</code></p>
-</li>
-<li>
-<p>To ease the compilation process and not type a verbose command sequence every time we compile, we use the <span class="math"><em>m</em><em>a</em><em>k</em><em>e</em></span> utility. This uses a 'Makefile' where we can specify a list of commands directed towards a specific label (e.g., default, clean, prog1 labels in p0/prog1). If a project comes with a Makefile, using the following command will execute the default action:<br />$ make</p>
-</li>
-</ol>
+<p> To compile the project type the following command:</p>
+<code>
+	$ make
+</code>
+<p> If the compilation is successful, it creates an executable file called <i> segfault</i>.
+<p>To start fresh after some modifications in the project, use the following commands:</p>
+<code>
+	$ make clean
+	<br/>
+	$ make</code>
 
 <h3>How to run the project? </h3>
-	<p>Once you compile the project and create an executable file (eg. <i>out</i> in above example),
-	to execute that file use the following command:<br />
-		<code>$ ./out [command line arguments if needed]</code></p>
+	<p>Once you compile the project and create an executable file (eg. <i>segfault</i> in above example),
+	you execute that file using the following command:<br />
+		<code>$ ./segfault</code></p>
+<p> This should result in the following output:</p>
+<code>
+	 Segmentation fault (core dumped)
+</code>
+This error occurs because the program is trying to access a location in memory which is not allocated for its use. To find why this happens, we use a debugger next.</p>
 
-
-<p>How to debug a program?<br />To debug a program we use <span class="math"><em>g</em><em>d</em><em>b</em></span> utility. Here is what you will need:</p>
+<h3>How to debug a program?</h3>
+<p>To debug a program we use the <i>gdb</i> utility.</p>
 <ol>
 <li>
-<p>To run a program prog1 under gdb, simply execute<br />$ gdb prog1</p>
+<p>To run a program (segfault for example) using gdb, simply execute</p>
+<code>
+	$ gdb segfault
+</code>
+<p>This results in a new prompt as below:</p>
+<code>
+	(gdb)
+</code>
 </li>
 <li>
-<p>While running an executable under gdb&rsquo;s control, you can add breakpoints in the program to ease the debugging process.
-To add a breakpoint, type<br />$ break <span class="math"> &lt; </span>linenumber<span class="math"> &gt; </span></p>
-</li>
-<li>
-<p>To run the code type<br />$ r</p>
-</li>
-<li>
-<p>To continue running the program after a breakpoint is hit, type<br />$ c</p>
-</li>
-<li>
-<p>To inspect the stack using gdb, type<br />$ backtrace or<br />$ backtrace full (to display contents of local variables)</p>
-</li>
-<li>
-<p>To get information about individual frames, type<br /><code>$ info frame &lt; frame number &gt; </code><br />E.g., if you want to see information about frame 5 (assuming your program has made 6 recursive function calls, since frame number starts from 0), then the command would look like<br />$ info frame 5</p>
-</li>
-<li>
-<p>To get size of a frame, subtract frame addresses of two consecutive frames.</p>
+<p>To run the program in this prompt type:</p>
+<code>
+	(gdb) run
+</code>
+<p>This will result in the exact line number where the segmentation fault occured as below:</p>
+<code>
+	Starting program: /path/to/segfault
+<br/>
+Program received signal SIGSEGV, Segmentation fault.<br/>
+0x0000000000400539 in main (argc=1, argv=0x7fffffffde78) at segfault.c:10<br/>
+10		printf("Value at address %p is %d\n", p, *p);
+
+</code>
 </li>
 </ol>
-
-<p>To find the size of an executable (including its code vs. data segments), consider using the <i>size</i> command. Look at its man pages.</p>
-<p>To find PID of, say, prog2, type:<br />$ ps -ef | grep prog2 <br/>or<br />$ pgrep prog2</p>
-
-
-<p>To find the size of code during run time, type the following while the code is in execution:<br />$ pmap PID | grep &ldquo;total&rdquo;<br />To see memory allocated to each section of the process, type<br />$ pmap PID</p>
-<hr/>
-
-<h3>Deliverables</h3>
-You should do the task 1 below and answer three questions clearly and make .txt report file containing those answers and add this file to your project.
-<p><strong>Task one:</strong> In <strong>prog1</strong> folder, the program prog1.c calls a recursive function which has a local and a dynamically allocated variable. This program will crash due a bug we have introduced into it. Use the Makefile that we have provided to compile the program and subsequently execute it.
-The program will exit with an error printed on the console.
-You are to compile the program with 32 bit and 64 bit options and carry out the following tasks separately for each:</p>
-<ol>
-<li>
-<p>Observe and report the differences in the following for the 32 bit and 64 bit executables: (i) size of compiled code, (ii) size of code during run time, (iii) size of linked libraries.</p>
-</li>
-<li>
-<p>Use gdb to find the program statement that caused the error.</p>
-</li>
-<li>
-<p>Explain the cause of this error.</p>
-</li>
-</ol>
-</li>
+<p>This points out the fact that the pointer <i>p</i> is being accessed in line number 10 without any memory being allocated for it. </p>
+	<p> To fix this error, uncomment line number 9 and 12 in segfault.c and recompile the project as described above.</p>
+	<p> Next, run the program again and dump the output to a .log file.</p>
+	<code>
+		$ ./segfault > output.log
+	</code>
 
 <hr/>
 <h3>Pushing and Submitting Your Changes and Reports</h3>
 
-<p>If you change an existing file or add a new file to your local repo, you must commit the changes and then push them to the remote repo. </p>
+<p>Now that you have modified some files and added some new files to your local repository, you must commit the changes and then push them to the remote repository. </p>
 <p>First make sure you are at the correct branch as explained before and then follow the steps below:</p>
 <p>Add files that have been created or have been changed:</p>
 
@@ -262,8 +244,8 @@ You are to compile the program with 32 bit and 64 bit options and carry out the 
      <li> Click on <i> Merge pull request</i> button and then click on <i> Confirm merge</i>
  </ol>
 
- <i>*If you are in a group, as a good practice we recommend that members create their own branches and one of the members does Task 1 for -m64 and and the other does -m32 and then commit
- and push their changes and then finally merge your branches into the master branch.*</i>
+ <!-- <i>*If you are in a group, as a good practice we recommend that members create their own branches and one of the members does Task 1 for -m64 and and the other does -m32 and then commit
+ and push their changes and then finally merge your branches into the master branch.*</i> -->
 
 <h3>Merge Conflicts</h3>
  <p> Merging two branches can raise conflicts. Git attempts to resolve them as much as possible. Sometimes you need to resolve the conflicts manually.</p>
@@ -288,7 +270,13 @@ You are to compile the program with 32 bit and 64 bit options and carry out the 
 
 </ol>
 	<h3>Useful Materials</h3>
+	<ol>
+		<li> Git
 	If you need to know more about git, there are many awesome references that you can find online.<br/>
 	<a href="https://rogerdudler.github.io/git-guide/">This</a> is a quick place to start. <br/>
 	<a href="https://try.github.io/levels/1/challenges/1">Here</a> is an interactive game for learning git, try it! <br/>
 	You can also find more references <a href="https://gist.github.com/jaseemabid/1321592">Here</a>.
+</li>
+<li>gcc: read more on gcc <a href="https://linux.die.net/man/1/gcc">here</a></li>
+<li>gdb: read more on gdb <a href="https://linux.die.net/man/1/gdb">here</a></li>
+</ol>
