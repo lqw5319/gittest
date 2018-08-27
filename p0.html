@@ -1,0 +1,296 @@
+<center>
+	<h1>P0: Refreshing Your Background</h1>
+	<h3>CMPSC 473, FALL 2018</h3>
+	<p><font color="red">This project is not for evaluation. This is to familiarize
+	yourself with the tools and commands used in this course.</font></p>
+</center>
+<hr/>
+<h2>Machines and tools</h2>
+<p>All the projects in this course are to be run and tested on the linux machines in lab W204.
+	To connect to these machines,
+	open an ssh terminal (or an equivalent software in your OS (e.g putty in Windows))
+	and use the following command: <br/>
+	<code>$ ssh username@cse-p204instxx.cse.psu.edu</code><br />
+	where <span class="math"><em>u</em><em>s</em><em>e</em><em>r</em><em>n</em><em>a</em><em>m</em><em>e</em></span>
+	is your CSE username and <span class="math"><em>x</em><em>x</em></span>
+	is the machine number (e.g 04).<br />
+	Proceed with the authentication (your password or 2FA) and you will be logged in.</p>
+<!--
+ if you are inside the department network, first use the Cisco AnyConnect VPN to establish a VPN, otherwise you don&rsquo;t need a VPN.
+-->
+<p>
+All the projects in this course will allow up to 2 students per team and to ease
+collaboration within the team, we are planning to use
+<a href="https://classroom.github.com/">github classroom</a>
+as the platform for disemminating code stubs and files related to the project,
+as well as allowing collaborations (within teams).
+So, we first go through some important and useful commands to configure your respective git environment.
+</p>
+<h3>What is git?</h3>
+<a href="https://en.wikipedia.org/wiki/Git">Git</a> is a version control system
+(typically hosted on, <a href="github.com">Github.com</a>)
+for (i) tracking changes (and reverting to previous versions) in multiple files and
+(ii) collaborating with multiple users.
+
+<h3>Signing Up</h3>
+If not done already, each student should sign up on <a href="github.com">GitHub.com</a> to register and get their individual usernames.
+
+<h3>Configuring your local git environment</h3>
+To configure a git enviroment (in any of the lab W204 machines), set the username and email using following commands:<br/>
+ <code>
+  $ git config --global user.name "Your Username"<br/>
+  $ git config --global user.email "Your Email"<br/>
+</code>
+
+<h3>Adding SSH key</h3>
+In order to authenticate your Git user while cloning the repository you need to add your public SSH key to your git account. To do so, follow the steps below:
+<ol>
+  <li>Create a SSH key by running this command:<br/>
+  <code>
+  $ ssh-keygen -t rsa -b 4096 -C "your@email.com"
+  </code>
+  </li>
+ <li> It will ask for a path to store the key generated and password protection for the key file. Press Enter on any question to select default answer.
+  </li>
+  <li> If you selected the default answer, your public SSH key will be created in <code>$ &sim;/.ssh/id_rsa.pub</code>. Else, it will be in the path you chose for the file. Copy it's content.
+  </li>
+  <li>Go to your GitHub account, go to settings, in left-side menu select SSH key, and paste your public key there.
+</li>
+</ol>
+<hr/>
+<h2>Working on your project</h2>
+After configuring the Git environment, you can clone the project (in this example, P0) files and start working on it.
+For each project (P1, P2, and P3), we will release an invitation link to join a github classroom as below:
+<h3>Invitation link for P0:</h3>
+<p><a href="https://classroom.github.com/a/VtsWevms">https://classroom.github.com/a/VtsWevms</a></p>
+
+<h3>Accepting the project</h3>
+<p>Click on the invitation link above and then accept the project. By accepting the invitation, you will have access to  your  private  repository
+containing  the  starter  files provided as a part of the project (it has the source codes, manuals and scripts for the project).
+</p><p>The link for your repository is: "https://github.com/psu473/px-< your-github-username >"</p>
+<p>where x is the project number (here 0) </p>
+<strong>Note:</strong> This private repository is a copy of a public starter repository at https://github.com/psu473/p<i>x</i> where x is project number.
+Please stay tuned constantly to the canvas page for the exact and latest interface
+functions you need to implement, their arguments, test programs, examples, documentation/manuals and announcements.<br/>
+
+<p> To get the latest update, follow the steps below:</p>
+<ol>
+	<li>Switch to your master branches:
+		 <code> git checkout master</code>
+	 </li>
+	<li>Now pull the updates, full the public starter repository:
+		<code>
+			git pull https://github.com/psu473/px
+		</code>
+		where <i> x</i> is the project number.
+		<li> If there are conflicts, resolve them as descrived below.</li>
+		<li> Commit the merge as described below.</li>
+		<li> Push the merge to you remote repository:
+			<code>
+				git push origin master
+			</code>
+		</li>
+</ol>
+These commands enbale you to merge the changes and updates we pushed into the public repository with your current working private repository (e.g p0-< your-github-username >).
+
+
+<h3>Adding your teammate</h3>
+<p style="color:red">
+Since all the course projects can be done in groups of up to 2 members, we next list the steps to follow to add your team member.<br/>
+<strong >Note:</strong> One person per team is required to
+accept the invitation link and then add the other team member to the repository as
+described below.<br/>
+If you accept the invitation and do not need the repository (in case you
+joined a team that already has a repository) let us know, so as to remove the
+repository.</p>
+
+To add your team-member to your private repository, go to your
+repository in GitHub and follow the instructions below:
+<ol>
+  <li> Click on settings menu (on the upper right side) </li>
+
+  <li> In the left side panel, click on "Collaborators &amp; teams". In the collaborator
+  section, add your teammate's GitHub username OR his/her email.</li>
+</ol>
+
+
+<h3>Cloning the project</h3>
+
+Now that a private (remote) repository is created for your team on GitHub.com to start working on the project both team members need to clone the project to their respective local machines. To do so, use the following command:
+<br/><br/>
+  <code>
+  $ git clone git@github.com:PSU473/px-&lt;yourGitHubUsername&gt;.git
+  </code>
+<br/>
+<p>where x is the project number (starting from 0).</p>
+
+<p>This command will download the repository to your current working directory.</p>
+
+<h3>Collaborating with your teammate(s)</h3>
+<p>To simultaneously work on the  same  project, team members
+need  to create a branch from the master branch and do their work at their own branch.</p>
+  <p> On completion, merge in the individual branches into the master branch (described below).
+	</p><p>To create your branch use the following command:</p>
+	<p><code>$ git branch &lt; your-branch-name &gt; </code></p>
+	<p>To list all branches, use the following command:</p>
+	<p><code>$ git branch -a </code></p>
+	<p>Now, to switch to your new branch, use the following command:</p>
+	<p><code>$ git checkout &lt; your-branch-name &gt; </code></p>
+	<p>To push your new branch using the following command:</p>
+	<p><code>$ git push origin &lt; your-branch-name &gt; </code></p>
+
+
+<h3>Working with the repository</h3>
+<p>Prior to making changes in the project, make sure that you are in the correct branch.</p>
+<p>To see which branch you currently are at use the following command:</p>
+<p><code>$ git branch -a</code></p>
+
+<p>As mentioned before, you will see all the branches of this repo listed.
+The current branch is marked by an * sign next to the branch name.
+If the current branch is not your branch name, switch to the correct
+branch using the following command:</p>
+
+<p><code>$ git checkout &lt; your-branch-name &gt; </code></p>
+
+<p>Now that your branch is ready, you can start making changes into the project.</p>
+<p>Any changes or additions to your local repository must be pushed
+to the remote version of repository on GitHub. To see whether your local
+repository is up to date or not, enter these commands:</p>
+
+<p><code>$ cd &lt; downloaded repo. &gt; </code></p>
+<p><code>$ git status</code></p>
+
+<p>The output of latter command tells you the status of your local repo.</p>
+
+<hr/>
+<h2 id="sec:start">Getting Started With P0</h2>
+<p> This project helps you familiarize with debugging a program that has a segmentation fault error.</p>
+<p>The repository for P0 contains a <i>src</i> folder that contains a <i>segfault.c</i> and a <i>Makefile</i>. We next describe the steps to compile, run and debug the program.</p>
+
+<h3>Compiling the project</h3>
+<p> To compile the project type the following command:</p>
+<code>
+	$ make
+</code>
+<p> If the compilation is successful, it creates an executable file called <i> segfault</i>.
+<p>To start fresh after some modifications in the project, use the following commands:</p>
+<code>
+	$ make clean
+	<br/>
+	$ make</code>
+
+<h3>How to run the project? </h3>
+	<p>Once you compile the project and create an executable file (eg. <i>segfault</i> in above example),
+	you execute that file using the following command:<br />
+		<code>$ ./segfault</code></p>
+<p> This should result in the following output:</p>
+<code>
+	 Segmentation fault (core dumped)
+</code>
+This error occurs because the program is trying to access a location in memory which is not allocated for its use. To find why this happens, we use a debugger next.</p>
+
+<h3>How to debug a program?</h3>
+<p>To debug a program we use the <i>gdb</i> utility.</p>
+<ol>
+<li>
+<p>To run a program (segfault for example) using gdb, simply execute</p>
+<code>
+	$ gdb segfault
+</code>
+<p>This results in a new prompt as below:</p>
+<code>
+	(gdb)
+</code>
+</li>
+<li>
+<p>To run the program in this prompt type:</p>
+<code>
+	(gdb) run
+</code>
+<p>This will result in the exact line number where the segmentation fault occured as below:</p>
+<code>
+	Starting program: /path/to/segfault
+<br/>
+Program received signal SIGSEGV, Segmentation fault.<br/>
+0x0000000000400539 in main (argc=1, argv=0x7fffffffde78) at segfault.c:10<br/>
+10		printf("Value at address %p is %d\n", p, *p);
+
+</code>
+</li>
+</ol>
+<p>This points out the fact that the pointer <i>p</i> is being accessed in line number 10 without any memory being allocated for it. </p>
+	<p> To fix this error, uncomment line number 9 and 12 in segfault.c and recompile the project as described above.</p>
+	<p> Next, run the program again and dump the output to a .log file.</p>
+	<code>
+		$ ./segfault > output.log
+	</code>
+
+<hr/>
+<h3>Pushing and Submitting Your Changes and Reports</h3>
+
+<p>Now that you have modified some files and added some new files to your local repository, you must commit the changes and then push them to the remote repository. </p>
+<p>First make sure you are at the correct branch as explained before and then follow the steps below:</p>
+<p>Add files that have been created or have been changed:</p>
+
+<p><code>$ git add &lt; list of file names separated by space &gt;</code></p>
+
+
+<p>Commit the changes with a message about that change:</p>
+
+<p><code>$ git commit -m "your proper commit message"</code></p>
+
+<p>Finally push the changes to remote repo:</p>
+<p><code>$ git push origin &lt; your-branch-name &gt;</code></p>
+
+<h3> Merging your branches</h3>
+ <p>After all team members are done with their work you need to merge your commits
+ to the master branch. In order to merge a branch to the master branch, follow these steps:
+ </p>
+ <ol>
+     <li> Go to the web page of your repository at https://github.com/psu473/px-< your-github-username > where $x$ is the project number (starting from 0).
+
+     <li> Click on <i> Pull requests</i> tab and and then click on <i> New pull request</i> button.
+
+     <li> In <i> compare</i> drop-down choose your branch
+
+     <li> Click on <i> Create pull request</i> button and proceed the form
+
+     <li> Click on <i> Merge pull request</i> button and then click on <i> Confirm merge</i>
+ </ol>
+
+ <!-- <i>*If you are in a group, as a good practice we recommend that members create their own branches and one of the members does Task 1 for -m64 and and the other does -m32 and then commit
+ and push their changes and then finally merge your branches into the master branch.*</i> -->
+
+<h3>Merge Conflicts</h3>
+ <p> Merging two branches can raise conflicts. Git attempts to resolve them as much as possible. Sometimes you need to resolve the conflicts manually.</p>
+
+<!-- <p>While merging two branches, there might be some conflicts between them. Git does its best to handle these conflicts as much as possible. However, sometimes you need to resolve the conflicts manually.</p> -->
+
+ <p>In the step 4 (above) if Git cannot resolve the conflict, it asks you to resolve. Steps to resolve are as below:</p>
+ <ol>
+     <li> Click on <i> Resolve conflicts</i> button</li>
+     <li> Resolve the conflicts as below:<br/>
+     Git shows the conflicts in the following format:<br/>
+     <p style="margin-right:2px">
+     <<<<<<< < your branch ><br/>
+     new changes in your branch<br/>
+    =======<br/>
+    lines in master branch which have conflict with yours<br/>
+    >>>>>>> master<br/>
+	</p>
+
+<p>To resolve the conflict you should either accept the portion above "<i>=======</i>" or the portion below it. Once you decided on it, remove the other portion as well as "<i> <<<<<<< < your branch ></i>" and "<i>  >>>>>>> master</i>". Do this process for any other conflict in this file or other files.</p>
+<p>     Finally click on <i>mark as resolved</i> button and then click on <i> commit merge</i> button. Now do the step 5 in above section (i.e Click on <i> Merge pull request</i> button and then click on <i>Confirm merge</i>)
+
+</ol>
+	<h3>Useful Materials</h3>
+	<ol>
+		<li> Git
+	If you need to know more about git, there are many awesome references that you can find online.<br/>
+	<a href="https://rogerdudler.github.io/git-guide/">This</a> is a quick place to start. <br/>
+	<a href="https://try.github.io/levels/1/challenges/1">Here</a> is an interactive game for learning git, try it! <br/>
+	You can also find more references <a href="https://gist.github.com/jaseemabid/1321592">Here</a>.
+</li>
+<li>gcc: read more on gcc <a href="https://linux.die.net/man/1/gcc">here</a></li>
+<li>gdb: read more on gdb <a href="https://linux.die.net/man/1/gdb">here</a></li>
+</ol>
